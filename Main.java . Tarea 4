@@ -1,0 +1,23 @@
+Codigo Main.java
+  package com.akihabara.market.model;
+
+import com.akihabara.market.dao.DatabaseConnection;
+
+public class Main {
+    public static void main(String[] args) {
+
+        DatabaseConnection dbConnection = new DatabaseConnection();
+
+        if (dbConnection.getConexion() != null) {
+            System.out.println("Conexión a la base de datos está activa.");
+        } else {
+            System.out.println("No se pudo establecer la conexión a la base de datos.");
+        }
+
+        ProductoOtaku producto = new ProductoOtaku("Figurine de Goku", "Figuras", 29.99);
+
+        System.out.println(producto);
+
+        dbConnection.cerrarConexion();
+    }
+}
